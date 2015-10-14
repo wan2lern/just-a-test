@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="sv-SE">
+<head>
+	<meta charset="UTF-8" />
+	<title>Sidotitel | Ersätt med Egen</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<meta name="author" content="Daniel Karjanlahti" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+<style>
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+a {
+    text-decoration: none;
+    color: #999;
+}
+/* END RESET */
+
+body {
+	font:100 1rem/150% Futura, sans-serif;
+	max-width:1920px;
+}
+
+.main-wrapper {
+	position:relative;
+	height:1500px;
+	width:100%;
+	margin: 0 0 100px; /* bottom = footer height */
+}
+
+header.main-header {
+	border-top: 4px solid rgb(0, 187, 255);
+        border-bottom: 5px solid rgb(0, 187, 255);
+}
+h1, h2 {
+	text-align:center;
+	font-weight:100;
+	line-height:150%;
+}
+h1 {font-size:4rem;}
+h2.meta-author {font-size:1.5rem;}
+.header-menu {
+	border-top: 4px solid #fff;
+        z-index: 9999;
+        font: bold 1.2em/170% Futura, sans-serif; 
+        background-color: rgb(255,255,255);
+        text-align: left;
+        width: 100%;
+}
+.header-menu ul {
+	margin:0 auto;
+        width:600px;
+	display: -webkit-box;
+    	display: -ms-flexbox;
+    	display: -webkit-flex;
+    	justify-content: space-around;
+}
+.header-menu li {
+        display: inline;
+        margin-left: 1em;
+}
+.header-menu a {
+        display: inline-block;
+        float: left;
+        height: 55px;
+        padding: .5em;
+        text-decoration: none;
+        color: rgb(0, 187, 255);
+        text-shadow: 0 0 2px #000;
+}
+/* effekt::hover */
+.header-menu a::before,
+.header-menu a::after {
+        opacity: 0;
+        -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+        -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+        transition: transform 0.3s, opacity 0.2s;
+}
+.header-menu a::before {
+        margin-right: 5px;
+        content: '[';
+        -webkit-transform: translateX(20px);
+        -moz-transform: translateX(20px);
+        transform: translateX(20px);
+}
+.header-menu a::after {
+        margin-left: 5px;
+        content: ']';
+        -webkit-transform: translateX(-20px);
+        -moz-transform: translateX(-20px);
+        transform: translateX(-20px);
+}
+.header-menu a:hover::before,
+.header-menu a:hover::after,
+.header-menu a:focus::before,
+.header-menu a:focus::after {
+        color: rgb(0, 187, 255);
+        opacity: 1;
+        -webkit-transform: translateX(0px);
+        -moz-transform: translateX(0px);
+        transform: translateX(0px);
+}
+.current-menu-item a {
+        text-shadow: 0 0 2px #000;
+}
+.current-menu-item a {
+        color: orange;
+}
+.current-menu-item a:hover,
+.current-menu-item a:focus,
+.current-menu-item a:hover::before,
+.current-menu-item a:focus::after,
+.current-menu-item a:hover::after,
+.current-menu-item a:focus::before {
+        color: orange;
+}
+.fixed {
+	position:fixed;
+	top:0;
+	border-top: 4px solid rgb(0, 187, 255);
+        border-bottom: 5px solid rgb(0, 187, 255);
+}
+.placeholder {
+	width:200px;
+	height:auto;
+	float:left;
+	margin:.5rem 2rem 2rem 0;
+}
+.macbook {
+	width:100%;
+	height:auto;
+	float:left;
+	margin:2rem 1rem 2rem 0;
+}
+.chromebook {
+	width:100%;
+	height:auto;
+	float:left;
+	margin:2rem 1rem 2rem 0;
+}
+.main-content {
+	width:940px;
+	margin:0 auto;
+}
+.article-header {
+	height:7.5rem;
+	margin-bottom:1rem;
+	border-bottom: 5px solid rgb(0, 187, 255);
+}
+h2.content-title {
+	margin-top:3rem;
+	font:100 3rem/150% Futura, sans-serif;
+}
+h2.content-title, .meta-info {
+	text-align:left;
+	display: block;
+}
+.main-content p {
+	text-align:justify;
+}
+.meta-info {
+	font:300 1.2rem/150% Futura, 'Myriad Pro';
+	color:rgba(2, 159, 240, 0.83);
+	text-shadow: -.3px .2px 0 #333;
+}
+.meta-sub {
+	font:300 .7rem/150% Futura, 'Myriad Pro';
+	color:rgba(2, 159, 240, 0.83);
+	text-shadow: -.3px .2px 0 #333;
+}
+footer {
+	width:100%;
+	height:auto;
+	clear:both;
+	margin-top:8rem;
+	position: relative;
+}
+.footer-menu {
+	position:absolute;
+	bottom:0;
+	border-top: 5px solid rgb(0, 187, 255);
+        border-bottom: 5px solid rgb(0, 187, 255);
+        font: bold 1.2em/170% sans-serif; 
+        text-align: left;
+        width: 100%;
+}
+.footer-menu ul {
+	margin:0 auto;
+        width:600px;
+	display: -webkit-box;
+    	display: -ms-flexbox;
+    	display: -webkit-flex;
+    	justify-content: space-around;
+}
+.footer-menu li {
+        margin-left: 1em;
+}
+.footer-menu a {
+        display: inline-block;
+        float: left;
+        height: 55px;
+        padding: .5em;
+        text-decoration: none;
+        color: rgb(0, 187, 255);
+        text-shadow: 0 0 2px #000;
+}
+/* effekt::hover */
+.footer-menu a::before,
+.footer-menu a::after {
+        opacity: 0;
+        -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+        -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+        transition: transform 0.3s, opacity 0.2s;
+}
+.footer-menu a::before {
+        margin-right: 5px;
+        content: '[';
+        -webkit-transform: translateX(20px);
+        -moz-transform: translateX(20px);
+        transform: translateX(20px);
+}
+.footer-menu a::after {
+        margin-left: 5px;
+        content: ']';
+        -webkit-transform: translateX(-20px);
+        -moz-transform: translateX(-20px);
+        transform: translateX(-20px);
+}
+.footer-menu a:hover::before,
+.footer-menu a:hover::after,
+.footer-menu a:focus::before,
+.footer-menu a:focus::after {
+        color: rgb(0, 187, 255);
+        opacity: 1;
+        -webkit-transform: translateX(0px);
+        -moz-transform: translateX(0px);
+        transform: translateX(0px);
+}
+
+@media all and (max-width: 1000px) {
+	.main-content {
+        	width:80%;
+	}
+}
+@media all and (max-width: 768px) {
+	.header-menu ul {
+		margin:0 auto;
+        	width:100%;
+    		justify-content: space-around;
+	}
+	.header-menu li {
+        	margin-left: .5rem;
+	}
+	.footer-menu ul {
+		margin:0 auto;
+        	width:100%;
+    		justify-content: space-around;
+	}
+	.footer-menu li {
+        	margin-left: .5rem;
+	}
+	.main-content {
+        	width:90%;
+	}
+	h2.content-title {
+		font-size:2rem;
+	}
+}
+@media all and (max-width: 460px) {
+	.header-menu ul li {
+		display:block;
+	}
+	.header-menu a {
+		display:block;
+		float:none;
+		margin: 0;
+	}
+	.footer-menu ul li {
+		display:block;
+	}
+	.footer-menu a {
+		display:block;
+		float:none;
+		margin: 0;
+	}
+}
+</style>
+</head>
+<body>
+	<div class="main-wrapper">
+		<div class="header-wrapper">
+			<header class="main-header">
+				<h1 onclick="getProduct();">Huvudtitel</h1>
+				<h2 class="meta-author">Skapad av <a href="mailto:mail@cr8gr8designs.com">Daniel Karjanlahti</a></h2>
+				<div class="outer-nav-wrapper">
+					<nav class="nav header-menu">
+						<ul>
+							<li class="current-menu-item"><a href="#">Hem</a></li>
+							<li class="menu-item"><a href="#">Portfolio</a></li>
+							<li class="menu-item"><a href="#">Galleri</a></li>
+							<li class="menu-item"><a href="#">Kontakt</a></li>
+						</ul>
+					</nav>
+				</div>
+			</header>
+		</div>
+		<section class="main-content">
+			<header class="article-header">
+				<h2 class="content-title">En Artikel Titel Som Passar In</h2>
+				<span class="meta-info">Skapad av <a href="mailto:dankar1976@gmail.com">Daniel Karjanlahti</a>&nbsp;»»&nbsp;Datum:<time datetime="2014-10-11 12:00">11-10-14</time></span>
+			</header>
+			<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
+</p><br />
+<span class="meta-sub">Inlägget skrivet under kategorin Webbutveckling »» Datum:<time datetime="2014-10-11 12:00">11-10-14</time></span>
+		</section>
+		<footer>
+			<nav class="nav footer-menu social-menu">
+				<ul>
+					<li><a href="mailto:mail@cr8gr8designs.com">Daniel K</a></li>
+					<li><a href="#">Facebook</a></li>
+					<li><a href="#">Google+</a></li>
+					<li><a href="#">DeviantART</a></li>
+				</ul>
+			</nav>
+		</footer>
+	</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+/* 
+ * Sticky theme script for a sticky navigation/header when user logged out
+ */
+jQuery(document).ready(function() {
+    // kolla om användaren har scrollat lägre än menyn
+    // nav position i var
+    var navOffset = jQuery('nav.header-menu').offset().top;
+    
+    // sätt en wrapper runt nav så att innehållet inte hoppar
+    jQuery('.outer-nav-wrapper').height(jQuery('.header-menu').outerHeight());
+    jQuery('.outer-nav-wrapper').width('100%');
+    
+    jQuery(window).scroll(function() {
+        // scroll position
+        var scrollPos = jQuery(window).scrollTop();
+        
+        if(scrollPos >= navOffset + 2) {
+            jQuery('.header-menu').addClass('fixed');
+            jQuery('.header-menu').css('margin-top',0);
+        }else {
+            jQuery('.header-menu').removeClass('fixed');
+        }
+    })
+});
+</script>
+</body>
+</html>
